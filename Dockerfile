@@ -1,3 +1,15 @@
+# Use the official Nginx image as the base image
 FROM nginx:latest
-COPY ./conf.d/default.conf /etc/nginx/conf.d/default.conf
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
+
+# Remove default Nginx configuration
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Copy custom Nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/
+
+# Expose ports
+EXPOSE 80
+EXPOSE 443
+
+# CMD to start Nginx
+CMD ["nginx", "-g", "daemon off;"]

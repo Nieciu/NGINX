@@ -6,6 +6,7 @@ RUN rm /etc/nginx/conf.d/default.conf
 
 # Copy custom Nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/
+COPY nginx.conf /etc/nginx/
 
 # Copy SSL certificate and key
 COPY ./certs/ /etc/ssl/api.nserv.site/

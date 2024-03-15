@@ -1,11 +1,12 @@
-nginx:
+services:
+  nginx:
         container_name: example_nginx_prod
         image: nginx:latest
         ports:
-            - "443:443"
+            - ":443"
             - "80:80"
         volumes:
-            - ./:~/NGINX/
+            - ./:/etc/
             - /etc/ssl/api.nserv.site/cert.pem:/etc/ssl/api.nserv.site/cert.pem
             - /etc/ssl/api.nserv.site/key.pem:/etc/ssl/api.nserv.site/key.pem
-            - /etc/nginx/conf.d/default.conf:~/NGINX/default.conf
+            - /etc/nginx/conf.d/:/home/ubuntu/NGINX/conf.d/

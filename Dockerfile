@@ -9,7 +9,7 @@ COPY nginx.conf /etc/nginx/conf.d/
 COPY nginx.conf /etc/nginx/
 
 # Copy SSL certificate and key
-COPY ./certs/ /etc/ssl/api.nserv.site/
+COPY /etc/ssl/api.nserv.site/ /etc/ssl/api.nserv.site/
 
 # Expose ports
 EXPOSE 80
